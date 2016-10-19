@@ -1,0 +1,19 @@
+import sqlite3
+
+f="discobandit.db"
+
+db = sqlite3.connect(f)
+c = db.cursor()
+
+def getName():
+    student = "SELECT name FROM courses WHERE id=1;"
+    name = c.excecute (student)
+
+def getAvg():
+    grades = "SELECT mark FROM courses, peeps WHERE peep.id = 1 AND courses.id = 1;"
+    c.exceute(grades)
+    data = c.fetchall()
+    for row in data:
+        print(row)
+
+getAvg()
